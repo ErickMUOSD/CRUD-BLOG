@@ -24,6 +24,9 @@ class CreateArticlesTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->integer('img_id')->unsigned();
             $table->foreign('img_id')->references('id')->on('images');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
             $table->softDeletes();
         });
