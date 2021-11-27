@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Images extends Model
 {
-    Use HasFactory;
+    Use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name'
