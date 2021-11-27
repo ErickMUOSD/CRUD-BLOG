@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Images;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
@@ -25,7 +26,8 @@ class ArticleFactory extends Factory
             'body'=> $this ->faker->paragraph(2),
             /* definos nuestra llaves foraneas */
             'category_id'=> Category::all()->random()->id,
-            'img_id'=> Images::all()->random()->id
+            'img_id'=> Images::all()->random()->id,
+            'user_id'=> User::all()->random()->id,
         ];
     }
 }
