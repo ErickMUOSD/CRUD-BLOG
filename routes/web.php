@@ -38,5 +38,13 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons');
 	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
+
+
+    Route::get('categories', 'App\Http\Controllers\CategoryController@index',)->name('categories');
+    Route::post('/categories/{category}','App\Http\Controllers\CategoryController@update')->name('category.update');
+    Route::post('categories/store', 'App\Http\Controllers\CategoryController@create',)->name('category.create');
+    Route::delete('categories/{category}', 'App\Http\Controllers\CategoryController@destroy',)->name('category.destroy');
+
 });
 
