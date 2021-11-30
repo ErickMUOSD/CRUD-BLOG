@@ -41,7 +41,7 @@
 <!-- Main content -->
     <div class="main-content" id="panel">
 
-    @include('alerts.category.add')
+    @include('alerts.user.add')
     <!-- Topnav -->
         <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
             <div class="container-fluid">
@@ -56,8 +56,7 @@
                                 <input class="form-control" placeholder="Search" type="text">
                             </div>
                         </div>
-                        <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
-                                aria-label="Close">
+                        <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </form>
@@ -65,8 +64,7 @@
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
-                                 data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -80,15 +78,13 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
                                 <!-- Dropdown header -->
                                 <div class="px-3 py-3">
-                                    <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong>
-                                        notifications.</h6>
+                                    <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
@@ -96,8 +92,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg"
-                                                     class="avatar rounded-circle">
+                                                <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg" class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -116,8 +111,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg"
-                                                     class="avatar rounded-circle">
+                                                <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg" class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -136,8 +130,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg"
-                                                     class="avatar rounded-circle">
+                                                <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg" class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -156,8 +149,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg"
-                                                     class="avatar rounded-circle">
+                                                <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg" class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -176,8 +168,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg"
-                                                     class="avatar rounded-circle">
+                                                <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg" class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -194,17 +185,14 @@
                                     </a>
                                 </div>
                                 <!-- View all -->
-                                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View
-                                    all</a>
+                                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-ungroup"></i>
                             </a>
-                            <div
-                                class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
                                 <div class="row shortcuts px-4">
                                     <a href="#!" class="col-4 shortcut-item">
                     <span class="shortcut-media avatar rounded-circle bg-gradient-red">
@@ -248,8 +236,7 @@
                     </ul>
                     <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
                         <li class="nav-item dropdown">
-                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">
+                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
                     <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
@@ -324,27 +311,25 @@
                             @if(session('addedSuccessfully'))
 
                                 <div class="alert alert-success" role="alert">
-                                    <strong>Success!</strong> Category added
+                                    <strong>Success!</strong> User added
                                 </div>
 
                             @endif
 
                             @if($errors->any())
                                 <div class="alert alert-warning" role="alert">
-                                    <strong>Danger!</strong> Introduce a valid name category
+                                    <strong>Danger!</strong> Introduce valid characters
                                 </div>
                             @endif
                             @if(session('deletedSuccessfully'))
                                 <div class="alert alert-danger" role="alert">
-                                    <strong>Warning!</strong> Category was deleted successfully
+                                    <strong>Warning!</strong> User was deleted successfully
                                 </div>
                             @endif
                             <div class="d-flex justify-content-between">
                                 <h3 class="mb-0">Light table</h3>
 
-                                <button data-toggle="modal" data-target="#exampleModal" class="btn alert-primary">Add
-                                    new category
-                                </button>
+                                <button data-toggle="modal" data-target="#exampleModal"  class="btn alert-primary">Add new User</button>
                             </div>
 
                         </div>
@@ -353,9 +338,12 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th scope="col" class="sort" data-sort="name">Category</th>
+                                    <th scope="col" class="sort" data-sort="name">User</th>
                                     <th scope="col" class="sort" data-sort="budget">Id</th>
                                     <th scope="col" class="sort" data-sort="status">Name</th>
+                                    <th scope="col" class="sort" data-sort="status">Email</th>
+                                    <th scope="col" class="sort" data-sort="status">Rol</th>
+
                                     <th scope="col">Action</th>
 
                                     <th scope="col"></th>
@@ -364,7 +352,7 @@
                                 <tbody class="list">
 
 
-                                @foreach($data as $category)
+                                @foreach($data as $user)
 
 
                                     <tr>
@@ -374,34 +362,41 @@
                                                     <img alt="Image placeholder" src="../assets/img/theme/vue.jpg">
                                                 </a>
                                                 <div class="media-body">
-                                                    <span class="name mb-0 text-sm">Category</span>
+                                                    <span class="name mb-0 text-sm">Users</span>
                                                 </div>
                                             </div>
                                         </th>
                                         <td class="budget">
-                                            {{$category->id}}
+                                            {{$user->id}}
                                         </td>
                                         <td>
-                              <span class="badge badge-dot mr-4">
-                                <i class="bg-success"></i>
-                                <span class="status">{{$category->name}}</span>
-                              </span>
+                                                <span class="badge badge-dot mr-4">
+                                                      <i class="bg-success"></i>
+                                                 <span class="status">{{$user->name}}</span>
+                                                </span>
                                         </td>
-
+                                        <td>
+                                                <span class="badge badge-dot mr-4">
+                                                      <i class="bg-success"></i>
+                                                 <span class="status">{{$user->email}}</span>
+                                                </span>
+                                        </td>
+                                        <td>
+                                                <span class="badge badge-dot mr-4">
+                                                      <i class="bg-success"></i>
+                                                 <span class="status">{{$user->rol}}</span>
+                                                </span>
+                                        </td>
 
                                         <td class="text-right">
                                             <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a data-toggle="modal" data-target="#modal-update-{{$category->id}}"
-                                                       class="dropdown-item"
-                                                       href="{{route('category.update',$category->id)}}">Editar</a>
+                                                    <a data-toggle="modal" data-target="#modal-update-{{$user->id}}" class="dropdown-item" href="{{route('user.update',$user->id)}}">Editar</a>
 
-                                                    <form action="{{ route('category.destroy', $category) }}"
-                                                          method="post">
+                                                    <form action="{{ route('user.destroy', $user) }}" method="post">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button class="dropdown-item" href="#">Eliminar</button>
@@ -412,7 +407,7 @@
                                         </td>
                                     </tr>
 
-                                    @include('alerts.category.update')
+                                    @include('alerts.user.update')
                                 @endforeach
 
                                 </tbody>

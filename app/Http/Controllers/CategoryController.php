@@ -20,11 +20,11 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:45|min:6',
         ]);
-    if($validator->fails()){
-     return redirect('categories')
+        if($validator->fails()){
+        return redirect('categories')
          ->withErrors($validator)
          ->withInput();
-    }
+             }
         Category::create([
             'name' => $request->name
         ]);
