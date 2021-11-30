@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('category', 'App\Http\Controllers\CategoryController', ['except' => ['show']]);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::resource('tag', 'App\Http\Controllers\TagController', ['except' => ['show']]);
+	Route::resource('article', 'App\Http\Controllers\ArticleController', ['except' => ['show']]);
 
 });
 
