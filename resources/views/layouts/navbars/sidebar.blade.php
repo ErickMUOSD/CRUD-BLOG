@@ -106,17 +106,22 @@
 {{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('category.index') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Categories') }}
+                        <i class="fas fa-bookmark text-orange"></i> {{ __('Categories') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Users') }}
+                        <i class="fas fa-users text-blue "></i> {{ __('Users') }}
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('tag.index') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Tags') }}
+                        <i class=" fas fa-tags text-orange   "></i> {{ __('Tags') }}
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ route('article.index') }}">
+                        <i class="fas fa-pen text-blue"></i> {{ __('Articles') }}
                     </a>
                 </li>
                 <li class="nav-item">
