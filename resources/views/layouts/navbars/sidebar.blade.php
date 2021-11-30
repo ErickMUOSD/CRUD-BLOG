@@ -105,7 +105,7 @@
 {{--                    </div>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('categories') }}">
+                    <a class="nav-link" href="{{ route('category.index') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Categories') }}
                     </a>
                 </li>

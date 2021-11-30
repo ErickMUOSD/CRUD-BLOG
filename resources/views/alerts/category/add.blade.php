@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form  action="{{ route('category.create') }}" method="post">
+            <form  action="{{ route('category.store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="modal-body">
 

@@ -15,20 +15,20 @@ class CategoryController extends Controller
     }
 
 
-    public  function create(Request $request){
+    public  function store(Request $request){
 
         $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:45|min:6',
         ]);
         if($validator->fails()){
-        return redirect('categories')
+        return redirect()->route('category.index')
          ->withErrors($validator)
          ->withInput();
              }
         Category::create([
             'name' => $request->name
         ]);
-        return redirect('categories')->with('addedSuccessfully', 'Category added successfully');
+        return redirect()->route('category.index')->with('addedSuccessfully', 'Category added successfully');
     }
 
    public function update(Request $request, Category $category){
@@ -37,7 +37,7 @@ class CategoryController extends Controller
              ]);
 
              if($validator->fails()){
-                  return redirect('categories')
+                  return redirect()->route('category.index')
                       ->withErrors($validator)
                       ->withInput();
                  }
@@ -46,7 +46,7 @@ class CategoryController extends Controller
     $category->name = $request->name;
     $category->save();
 
-     return redirect('categories')->with('addedSuccessfully', 'Category added successfully');
+     return redirect()->route('category.index')->with('addedSuccessfully', 'Category added successfully');
 
    }
 
@@ -54,6 +54,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect('categories')->with('deletedSuccessfully', 'Category deleted successfully');
+        return redirect()->route('category.index')->with('deletedSuccessfully', 'Category deleted successfully');
     }
 }
