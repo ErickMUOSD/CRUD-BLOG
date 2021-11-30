@@ -10,6 +10,6 @@ class Tags extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'nombre',
+        'name',
     ];
 }

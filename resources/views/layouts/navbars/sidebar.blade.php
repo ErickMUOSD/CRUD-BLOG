@@ -115,8 +115,8 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}
+                    <a class="nav-link" href="{{ route('tag.index') }}">
+                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Tags') }}
                     </a>
                 </li>
                 <li class="nav-item">

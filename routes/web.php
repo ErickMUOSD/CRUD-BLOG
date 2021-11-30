@@ -41,12 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-//     Route::get('categories', 'App\Http\Controllers\CategoryController@index',)->name('categories');
-//     Route::post('/categories/{category}','App\Http\Controllers\CategoryController@update')->name('category.update');
-//     Route::post('categories/store', 'App\Http\Controllers\CategoryController@create',)->name('category.create');
-//     Route::delete('categories/{category}', 'App\Http\Controllers\CategoryController@destroy',)->name('category.destroy');
+
 	Route::resource('category', 'App\Http\Controllers\CategoryController', ['except' => ['show']]);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::resource('tag', 'App\Http\Controllers\TagController', ['except' => ['show']]);
 
 });
 
