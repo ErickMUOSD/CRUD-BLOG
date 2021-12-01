@@ -39,11 +39,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-
+//Routes for crud
 	Route::resource('category', 'App\Http\Controllers\CategoryController', ['except' => ['show']])->middleware('verified');
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']])->middleware('verified');
 	Route::resource('tag', 'App\Http\Controllers\TagController', ['except' => ['show']])->middleware('verified');
 	Route::resource('article', 'App\Http\Controllers\ArticleController', ['except' => ['show']])->middleware('verified');
 
+//route for create article
+ Route::get('article/add', function () {return view('pages.add_article');})->name('add.article')->middleware('verified');
 });
 
