@@ -17,16 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+
+Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -42,10 +40,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-	Route::resource('category', 'App\Http\Controllers\CategoryController', ['except' => ['show']]);
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::resource('tag', 'App\Http\Controllers\TagController', ['except' => ['show']]);
-	Route::resource('article', 'App\Http\Controllers\ArticleController', ['except' => ['show']]);
+	Route::resource('category', 'App\Http\Controllers\CategoryController', ['except' => ['show']])->middleware('verified');
+	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']])->middleware('verified');
+	Route::resource('tag', 'App\Http\Controllers\TagController', ['except' => ['show']])->middleware('verified');
+	Route::resource('article', 'App\Http\Controllers\ArticleController', ['except' => ['show']])->middleware('verified');
 
 });
 
