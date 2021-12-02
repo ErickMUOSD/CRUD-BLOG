@@ -15,7 +15,8 @@
                                 <h3 class="mb-0">Article</h3>
                             </div>
                             <div class="col text-right">
-                                <button data-toggle="modal" data-target="#exampleModal"  class="btn alert-primary">Add new User</button>
+                                <a  href="{{ route('add.article') }}" class="btn alert-primary">Add new Article</a>
+
                             </div>
                         </div>
                     </div>

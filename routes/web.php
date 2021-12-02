@@ -46,6 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('article', 'App\Http\Controllers\ArticleController', ['except' => ['show']])->middleware('verified');
 
 //route for create article
- Route::get('article/add', function () {return view('pages.add_article');})->name('add.article')->middleware('verified');
+Route::get('article/add','App\Http\Controllers\ArticleController@addArticle') ->name('add.article')->middleware('verified');
 });
 

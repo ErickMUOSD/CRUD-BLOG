@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 class ArticleController extends Controller
 {
@@ -29,5 +30,11 @@ class ArticleController extends Controller
 
            return view('pages.articles', ['data' =>$data]);
        }
+
+       public function addArticle(){
+               $data = Category::all();
+
+               return view('pages.add_article ' ,['data' =>$data]);
+              }
 
 }
