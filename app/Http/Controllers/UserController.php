@@ -41,7 +41,7 @@ class UserController extends Controller
                              ]);
 
 
-                return redirect()->route('user.index')->with('addedSuccessfully', 'Category added successfully');
+                return redirect()->route('user.index')->with('addedSuccessfully', 'User added successfully');
             }
 
              public function update(Request $request, User $user){
@@ -66,7 +66,7 @@ class UserController extends Controller
                 $user->rol = $request->rol;
                 $user->save();
 
-                return redirect()->route('user.index')->with('addedSuccessfully', 'User modified successfully');
+                return redirect()->route('user.index')->with('addedSuccessfully', 'User updated successfully');
 
              }
 
@@ -74,6 +74,6 @@ class UserController extends Controller
 
                 $user->delete();
 
-                return redirect()->route('user.index')->with('deletedSuccessfully', 'Category deleted successfully');
+                return redirect()->route('user.index')->with('deletedSuccessfully', 'User deleted successfully');
             }
 }

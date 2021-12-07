@@ -41,12 +41,10 @@ class CategoryController extends Controller
                       ->withErrors($validator)
                       ->withInput();
                  }
+   $category->update($request->all());
 
 
-    $category->name = $request->name;
-    $category->save();
-
-     return redirect()->route('category.index')->with('addedSuccessfully', 'Category added successfully');
+     return redirect()->route('category.index')->with('addedSuccessfully', 'Category updated successfully');
 
    }
 

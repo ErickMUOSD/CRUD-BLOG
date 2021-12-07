@@ -41,10 +41,9 @@ class TagController extends Controller
                     }
 
 
-       $tag->name = $request->name;
-       $tag->save();
+       $tag->update($request->all());
 
-        return redirect()->route('tag.index')->with('addedSuccessfully', 'Tag added successfully');
+        return redirect()->route('tag.index')->with('addedSuccessfully', 'Tag  updated  successfully');
 
       }
 
