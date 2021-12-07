@@ -118,58 +118,15 @@
                             </table>
 
                         </div>
-                    {{--                {{ $data->links() }}--}}
-                    <!-- Card footer -->
-                        <div class="card-footer py-4">
-
-                            {{--                        <nav aria-label="...">--}}
-
-                            {{--                            <ul class="pagination justify-content-end mb-0">--}}
-
-                            {{--                                <li class="page-item disabled">--}}
-                            {{--                                    <a class="page-link" href="#" tabindex="-1">--}}
-                            {{--                                        <i class="fas fa-angle-left"></i>--}}
-                            {{--                                        <span class="sr-only">Previous</span>--}}
-                            {{--                                    </a>--}}
-                            {{--                                </li>--}}
-                            {{--                               --}}
-                            {{--                                <li class="page-item active">--}}
-                            {{--                                    <a class="page-link" href="#">1</a>--}}
-                            {{--                                </li>--}}
-                            {{--                                <li class="page-item">--}}
-                            {{--                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>--}}
-                            {{--                                </li>--}}
-                            {{--                                <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
-                            {{--                                <li class="page-item">--}}
-                            {{--                                    <a class="page-link" href="#">--}}
-                            {{--                                        <i class="fas fa-angle-right"></i>--}}
-                            {{--                                        <span class="sr-only">Next</span>--}}
-                            {{--                                    </a>--}}
-                            {{--                                </li>--}}
-                            {{--                            </ul>--}}
-                            {{--                        </nav>--}}
+                        <div class="d-flex justify-content-center">
+                            {{ $data->links() }}
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Dark table -->
 
-            <!-- Footer -->
             @include('layouts.footers.guest')
         </div>
 
 @endsection
-{{--    <!-- Argon Scripts -->--}}
-{{--    <!-- Core -->--}}
-{{--    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>--}}
-{{--    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>--}}
-{{--    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>--}}
-{{--    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>--}}
-{{--    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>--}}
-{{--    <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>--}}
-{{--    <!-- Argon JS -->--}}
-{{--    <script src="../assets/js/argon.js?v=1.2.0"></script>--}}
-
-
-{{--</div>--}}
 

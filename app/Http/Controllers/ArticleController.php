@@ -13,19 +13,10 @@ class ArticleController extends Controller
 
 
 
-//     $data =  DB::table('articles')
-//           ->join('categories', 'categories.id', '=', 'articles.category_id')
-//           ->join('users', 'users.id', '=', 'articles.user_id')
-//           ->select('articles.*','categories.name', 'users.email')
-//           ->get();
 
-//           $data = Article::join('categories', 'categories.id', '=', 'articles.category_id')
-//           ->join('users', 'users.id', '=', 'articles.user_id')
-//            ->select('articles.*','categories.name', );
-//
           $data = User::join('articles', 'articles.user_id', '=', 'users.id')
           ->join('categories', 'categories.id', '=', 'articles.category_id')
-          ->select( "users.email","users.name as user_name" , "articles.*", "categories.name as category_name" ,)->get();;
+          ->select( "users.email","users.name as user_name" , "articles.*", "categories.name as category_name" ,)->paginate(5);
 
 
            return view('pages.articles', ['data' =>$data]);

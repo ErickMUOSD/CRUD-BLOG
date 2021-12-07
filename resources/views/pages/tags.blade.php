@@ -109,11 +109,8 @@
                             </table>
 
                         </div>
-                    {{--                {{ $data->links() }}--}}
-                    <!-- Card footer -->
-                        <div class="card-footer py-4">
-
-
+                        <div class="d-flex justify-content-center">
+                            {{ $data->links() }}
                         </div>
                     </div>
                 </div>

@@ -98,6 +98,9 @@
                             </table>
 
                         </div>
+                        <div class="d-flex justify-content-center">
+                            {{ $data->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
