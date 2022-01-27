@@ -77,7 +77,7 @@
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     <a data-toggle="modal" data-target="#modal-update-{{$article->id}}" class="dropdown-item" href="{{route('user.update',$article->id)}}">Editar</a>
 
-                                                    <form action="{{ route('article.destroy', $article) }}" method="post">
+                                                    <form action="{{ route('article.destroy',$article->articleId) }}" method="post">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button class="dropdown-item" href="#">Eliminar</button>

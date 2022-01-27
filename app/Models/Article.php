@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Article extends Model
 {
 
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     protected $fillable = [
         'title',
         'img',
@@ -19,6 +19,9 @@ class Article extends Model
         'img_id',
          'user_id'
     ];
+
+    	protected $primaryKey = 'id';
+        protected $keyType = 'int';
 
     public  function category()
     {

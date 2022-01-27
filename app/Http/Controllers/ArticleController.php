@@ -18,7 +18,7 @@ class ArticleController extends Controller
           $data = User::join('articles', 'articles.user_id', '=', 'users.id')
           ->join('categories', 'categories.id', '=', 'articles.category_id')
           ->join('images', 'images.id', '=', 'articles.img_id')
-          ->select( "users.email","users.name as user_name" , "articles.*","images.name as pathImage", "categories.name as category_name" ,)->paginate(5);
+          ->select( "users.email","users.name as user_name" , "articles.*" ,"articles.id as articleId","images.name as pathImage", "categories.name as category_name" ,)->paginate(5);
 
 
            return view('pages.articles', ['data' =>$data]);
@@ -71,5 +71,14 @@ class ArticleController extends Controller
                ]);
                return  redirect()->route('article.index');
        }
+
+       public function destroy($id){
+
+                   $oSite = DB::table('articles')
+                                   ->where('id', $id)
+                                      ->delete();
+
+                     return redirect()->route('article.index')->with('deletedSuccessfully', 'Category deleted successfully');
+                 }
 
 }

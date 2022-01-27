@@ -14,7 +14,7 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments('id','40');
+            $table->bigIncrements('id');
             $table->string('title','255');
             $table->text('body','102');
             $table->integer('category_id')->unsigned();
@@ -23,9 +23,8 @@ class CreateArticlesTable extends Migration
             $table->foreign('img_id')->references('id')->on('images');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->timestamps();
-            $table->softDeletes();
+//             $table->softDeletes();
         });
     }
 
