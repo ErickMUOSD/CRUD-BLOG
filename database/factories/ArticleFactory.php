@@ -21,8 +21,6 @@ class ArticleFactory extends Factory
     {
         return [
             'title'=>$this ->faker->sentence,
-            'img'=> $this ->faker->imageUrl($width = 640, $height = 480),
-            'subtitle'=> $this ->faker->sentence,
             'body'=> $this ->faker->paragraph(2),
             /* definos nuestra llaves foraneas */
             'category_id'=> Category::all()->random()->id,

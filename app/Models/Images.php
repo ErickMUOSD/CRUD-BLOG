@@ -11,7 +11,8 @@ class Images extends Model
     Use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name'
+        'name',
+        'path'
     ];
 
     public function article()

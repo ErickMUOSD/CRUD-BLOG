@@ -45,7 +45,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('tag', 'App\Http\Controllers\TagController', ['except' => ['show']])->middleware('verified');
 	Route::resource('article', 'App\Http\Controllers\ArticleController', ['except' => ['show']])->middleware('verified');
 
-//route for create article
-Route::get('article/add','App\Http\Controllers\ArticleController@addArticle') ->name('add.article')->middleware('verified');
+//route to create article
+    Route::get('article/add','App\Http\Controllers\ArticleController@addArticle') ->name('add.article')->middleware('verified');
+
+//store article and its image
+
+    Route::get('image-upload', [ 'App\Http\Controllers\ArticleController', 'imageUpload' ])->name('image.upload')->middleware('verified');
+    Route::post('image-upload', [  'App\Http\Controllers\ArticleController', 'imagePost' ])->name('image.upload.post')->middleware('verified');
 });
 

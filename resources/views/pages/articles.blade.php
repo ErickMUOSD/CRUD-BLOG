@@ -46,12 +46,10 @@
                                     <tr>
                                         <th scope="row">
                                             <div class="media align-items-center">
-                                                <a href="#" class="avatar rounded-circle mr-3">
-                                                    <img alt="Image placeholder" src="../assets/img/theme/vue.jpg">
-                                                </a>
-                                                <div class="media-body">
-                                                    <span class="name mb-0 text-sm">Article</span>
-                                                </div>
+
+                                                <img src="{{url('/images/'.$article->pathImage)}}" alt="Image" style="width: 80px"/>
+
+
                                             </div>
                                         </th>
                                         <td class="budget">
@@ -79,7 +77,7 @@
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     <a data-toggle="modal" data-target="#modal-update-{{$article->id}}" class="dropdown-item" href="{{route('user.update',$article->id)}}">Editar</a>
 
-                                                    <form action="{{ route('user.destroy', $article) }}" method="post">
+                                                    <form action="{{ route('article.destroy', $article) }}" method="post">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button class="dropdown-item" href="#">Eliminar</button>
