@@ -3,9 +3,9 @@
 @include('layouts.headers.global')
 
 
-<form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('article.update',$articleData['id'],$articleData['id']) }}" method="POST" enctype="multipart/form-data">
     @csrf
-
+    {{ method_field('PUT') }}
     <div class="row justify-content-md-center m-4">
 
 
@@ -14,11 +14,11 @@
                     <div class="card-body ">
                         <h2> Add New Article</h2>
                         <div class="form-group">
-                            <input name="title" type="text" class="form-control" id="exampleFormControlInput1"
+                            <input value="{{$articleData['title']}}" name="title" type="text" class="form-control" id="exampleFormControlInput1"
                                    placeholder="Write the title here!" required>
                         </div>
                         <textarea  name="body"id="editor" >
-
+                            {{$articleData['body'] }}
                         </textarea>
                         <style>
                             .ck-editor__editable_inline {
@@ -40,7 +40,7 @@
                 <div class="card  m-2">
                     <div class="card-body p-2 ">
 
-                        <h3 >Post Article</h3>
+                        <h3 >{{!empty($articleData) ? 'Update Article ': 'Post Article'}}</h3>
                         <div class="container m-2 p-0 ">
 
                             <p class="font-weight-normal m-1"> <i class="far fa-calendar-alt"></i> Post:  <strong>Now</strong> <button type="button" class="btn btn-outline-primary btn-sm">Edit</button></p>
@@ -49,7 +49,7 @@
 
                         </div>
                         <hr>
-                            <button type="submit" class="btn btn-primary ">Post Article</button>
+                            <button type="submit" class="btn btn-primary ">{{!empty($articleData) ? 'Save Article ': 'Post Article'}}</button>
 
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         <p class="font-weight-bold">Select an image to upload </p>
 
 
-                        <img id="blah" style="max-width:200px;" src="http://placehold.it/180 " alt="your image" />
+                        <img id="blah" style="max-width:200px;" src="{{!empty($articleData) ? url('/images/'.$articleData[0]['name']): 'http://placehold.it/180'}} " alt="your image" />
                         <input type='file'  name="image" class="form-control"  onchange="readURL(this);"  />
                         <script>
                             function readURL(input) {

@@ -24,11 +24,82 @@ class ArticleController extends Controller
            return view('pages.articles', ['data' =>$data]);
        }
 
-       public function addArticle(){
+       public function create(){
                $data = Category::all();
 
                return view('pages.add_article ' ,['data' =>$data]);
        }
+
+
+       public function show($id){
+
+               $data = Category::all();
+               $articleData= Article::find($id);
+//                $imageData = Images::find($articleData->img_id);
+//                $imageData  = Images::find($articleData->img_id);
+
+               $imageData = Images::select('name',)->where('id', $articleData->img_id)->get();
+//                Table::select('name','surname')->where('id', 1)->get();
+
+
+               //merge article data and image data
+               $article = array_merge($articleData->toArray(), $imageData->toArray());
+// dd($article);
+               return view('pages.edit_article ',['data' =>$data], ['articleData' => $article]);
+       }
+
+      public function update(Request $request, $id){
+
+                $id = (int) $id;
+                 //validate server-side
+                $validator = Validator::make($request->all(),[
+                    'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'title' => 'required',
+                    'body' => 'required',
+                    'category_id' => 'required'
+                    ]);
+                       if($validator->fails()){
+                         return redirect()->route('article.index')
+                                          ->withErrors($validator)
+                                         ->withInput();
+                           }
+              //validate if current category exists
+               $checkCategory = Category::find($request->category_id);
+              if(empty($checkCategory)) return back();
+
+              //get current article model
+             $article = Article::find($id);
+
+              //if there is no image request it means image didnt change
+              if(empty($request->image)){
+                $article->update($request->all());
+                 return  redirect()->route('article.index');
+              }
+              //on the another hand we need to store the new image and update it manually
+              else
+              {
+
+              //store image
+               $imageName = time().'.'.$request->image->extension();
+               $request->image->move(public_path('images'), $imageName);
+               $imageCreated  =  Images::create([
+                    'name'=> $imageName
+                 ]);
+               $imageId = $imageCreated->id;
+
+               //save info
+               $article->title = $request->title;
+               $article->body= $request->body;
+               $article->category_id= $request->category_id;
+               $article->img_id= $imageId;
+               $article->save();
+
+               return redirect()->route('article.index');
+              }
+
+
+
+      }
 
        public function imagePost(Request $request)
        {
@@ -41,7 +112,7 @@ class ArticleController extends Controller
                 'category_id' => 'required'
                 ]);
                 if($validator->fails()){
-                    return redirect()->route('add.article')
+                    return redirect()->route('article.index')
                          ->withErrors($validator)
                          ->withInput();
                  }

@@ -15,11 +15,12 @@
                                 <h3 class="mb-0">Article</h3>
                             </div>
                             <div class="col text-right">
-                                <a  href="{{ route('add.article') }}" class="btn alert-primary">Add new Article</a>
+                                <a  href="{{ route('article.create') }}" class="btn alert-primary">Add new Article</a>
 
                             </div>
                         </div>
                     </div>
+                    @include('alerts.alert_messages')
                     <div class="table-responsive">
                         <!-- Projects table -->
                         <div class="table-responsive">
@@ -75,7 +76,7 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a data-toggle="modal" data-target="#modal-update-{{$article->id}}" class="dropdown-item" href="{{route('user.update',$article->id)}}">Editar</a>
+                                                    <a class="dropdown-item" href="{{route('article.show',$article->id)}}">Editar</a>
 
                                                     <form action="{{ route('article.destroy',$article->articleId) }}" method="post">
                                                         @method('DELETE')
