@@ -85,8 +85,6 @@ class ArticleController extends Controller
                return redirect()->route('article.index');
               }
 
-
-
       }
 
        public function imagePost(Request $request)
@@ -106,12 +104,8 @@ class ArticleController extends Controller
               // validate if category exists
               $checkCategory = Category::find($request->category_id);
               if(empty($checkCategory)) return back();
-
-
               //store image
-
                  $imageId =$this->createImage($request);
-
 
                //get current user in the session
               $user = Auth::id();
