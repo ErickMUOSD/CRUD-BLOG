@@ -1,30 +1,33 @@
 @extends('layouts.app')
 @section('content')
-@include('layouts.headers.global')
+    @include('layouts.headers.global')
 
 
-<form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+    <form action="{{ empty($articleData) ? route('image.upload.post') :  route('article.update',$articleData['id'],$articleData['id'])  }}" method="POST" enctype="multipart/form-data">
+        @csrf
 
-    <div class="row justify-content-md-center m-4">
+        {{ empty($articleData) ? '' :  method_field('PUT') }}
+        <div class="row justify-content-md-center m-4">
 
 
             <div class="col-md-8 ">
                 <div class="card h-100">
                     <div class="card-body ">
-                        <h2> Add New Article</h2>
+                        <h2>{{empty($articleData) ? 'Add Article' : 'Edit article' }}</h2>
                         <div class="form-group">
-                            <input name="title" type="text" class="form-control" id="exampleFormControlInput1"
+                            <input value="{{empty($articleData) ?  '' :   $articleData['title']}}" name="title"
+                                   type="text" class="form-control" id="exampleFormControlInput1"
                                    placeholder="Write the title here!" required>
                         </div>
-                        <textarea  name="body"id="editor" >
-
+                        <textarea name="body" id="editor">
+                            {{empty($articleData) ? '' : $articleData['body'] }}
                         </textarea>
                         <style>
                             .ck-editor__editable_inline {
                                 min-height: 400px;
 
                             }
+
                             hr {
                                 margin-top: 0;
                                 margin-bottom: 5px;
@@ -40,40 +43,55 @@
                 <div class="card  m-2">
                     <div class="card-body p-2 ">
 
-                        <h3 >Post Article</h3>
+                        <h3>{{empty($articleData) ? 'Post Article' : 'Save article' }}</h3>
                         <div class="container m-2 p-0 ">
 
-                            <p class="font-weight-normal m-1"> <i class="far fa-calendar-alt"></i> Post:  <strong>Now</strong> <button type="button" class="btn btn-outline-primary btn-sm">Edit</button></p>
-                            <p class="font-weight-normal m-1">  <i class="fas fa-key"></i> Status <strong>Craft</strong> <button type="button" class="btn btn-outline-primary btn-sm">Edit</button></p>
-                            <p class="font-weight-normal m-1">  <i class="fas fa-eye"></i> Visibility:  <strong>Public</strong> <button type="button" class="btn btn-outline-primary btn-sm">Edit</button></p>
+                            <p class="font-weight-normal m-1"><i class="far fa-calendar-alt"></i> Post:
+                                <strong>Now</strong>
+                                <button type="button" class="btn btn-outline-primary btn-sm">Edit</button>
+                            </p>
+                            <p class="font-weight-normal m-1"><i class="fas fa-key"></i> Status <strong>Craft</strong>
+                                <button type="button" class="btn btn-outline-primary btn-sm">Edit</button>
+                            </p>
+                            <p class="font-weight-normal m-1"><i class="fas fa-eye"></i> Visibility:
+                                <strong>Public</strong>
+                                <button type="button" class="btn btn-outline-primary btn-sm">Edit</button>
+                            </p>
 
                         </div>
                         <hr>
-                            <button type="submit" class="btn btn-primary ">Post Article</button>
+                        <button type="submit"
+                                class="btn btn-primary ">{{empty($articleData) ? 'Post Article' : 'Save article' }}</button>
 
                     </div>
                 </div>
                 <div class="card  m-2">
                     <div class="card-body">
                         <p class="font-weight-bold">Select a category for the article</p>
-
-
                         <select name="category_id" class="form-control">
+                            @if(!empty($articleData))
+                                @foreach($data as $category)
+
+                                    <option
+                                        value="{{$category->id}}" {{  $articleData["category_id"] === $category->id ? 'selected' : ''}} >{{$category->name}}</option>
+                                @endforeach
+                            @endif
                             @foreach($data as $category)
-                                <option
-                                        value="{{$category->id}}">{{$category->name}}</option>
+
+                                <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
+
 
                         </select>
                     </div>
                 </div>
                 <div class="card  m-2">
-                    <div class="card-body".>
+                    <div class="card-body" .>
                         <p class="font-weight-bold">Select an image to upload </p>
 
 
-                        <img id="blah" style="max-width:200px;" src="http://placehold.it/180 " alt="your image" />
-                        <input type='file'  name="image" class="form-control"  onchange="readURL(this);"  />
+                        <img id="blah" style="max-width:200px;" src="{{empty($articleData) ?  'http://placehold.it/180'  : url('/images/'.$articleData[0]['name'])}} " alt="your image"/>
+                        <input type='file' name="image" class="form-control" onchange="readURL(this);"/>
                         <script>
                             function readURL(input) {
                                 if (input.files && input.files[0]) {
@@ -91,8 +109,8 @@
                     </div>
                 </div>
             </div>
-    </div>
-</form>
+        </div>
+    </form>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
     <script>

@@ -39,8 +39,8 @@ class ArticleController extends Controller
 
                //merge article data and image data
                $article = array_merge($articleData->toArray(), $imageData->toArray());
-
-               return view('pages.edit_article ',['data' =>$data], ['articleData' => $article]);
+// dd($article);
+               return view('pages.add_article ',['data' =>$data], ['articleData' => $article]);
        }
 
       public function update(Request $request, $id){
