@@ -35,16 +35,11 @@ class ArticleController extends Controller
 
                $data = Category::all();
                $articleData= Article::find($id);
-//                $imageData = Images::find($articleData->img_id);
-//                $imageData  = Images::find($articleData->img_id);
-
                $imageData = Images::select('name',)->where('id', $articleData->img_id)->get();
-//                Table::select('name','surname')->where('id', 1)->get();
-
 
                //merge article data and image data
                $article = array_merge($articleData->toArray(), $imageData->toArray());
-// dd($article);
+
                return view('pages.edit_article ',['data' =>$data], ['articleData' => $article]);
        }
 
@@ -59,9 +54,7 @@ class ArticleController extends Controller
                     'category_id' => 'required'
                     ]);
                        if($validator->fails()){
-                         return redirect()->route('article.index')
-                                          ->withErrors($validator)
-                                         ->withInput();
+                         return back();
                            }
               //validate if current category exists
                $checkCategory = Category::find($request->category_id);
@@ -80,12 +73,7 @@ class ArticleController extends Controller
               {
 
               //store image
-               $imageName = time().'.'.$request->image->extension();
-               $request->image->move(public_path('images'), $imageName);
-               $imageCreated  =  Images::create([
-                    'name'=> $imageName
-                 ]);
-               $imageId = $imageCreated->id;
+              $imageId =$this->createImage($request);
 
                //save info
                $article->title = $request->title;
@@ -112,9 +100,7 @@ class ArticleController extends Controller
                 'category_id' => 'required'
                 ]);
                 if($validator->fails()){
-                    return redirect()->route('article.index')
-                         ->withErrors($validator)
-                         ->withInput();
+                    return back();
                  }
 
               // validate if category exists
@@ -123,12 +109,9 @@ class ArticleController extends Controller
 
 
               //store image
-               $imageName = time().'.'.$request->image->extension();
-               $request->image->move(public_path('images'), $imageName);
-               $imageCreated  =  Images::create([
-                    'name'=> $imageName
-                 ]);
-               $imageId = $imageCreated->id;
+
+                 $imageId =$this->createImage($request);
+
 
                //get current user in the session
               $user = Auth::id();
@@ -150,6 +133,17 @@ class ArticleController extends Controller
                                       ->delete();
 
                      return redirect()->route('article.index')->with('deletedSuccessfully', 'Category deleted successfully');
-                 }
+       }
+
+      private function createImage(Request $request){
+
+               $imageName = time().'.'.$request->image->extension();
+               $request->image->move(public_path('images'), $imageName);
+               $imageCreated  =  Images::create([
+                    'name'=> $imageName
+                 ]);
+               return $imageCreated->id;
+
+       }
 
 }
